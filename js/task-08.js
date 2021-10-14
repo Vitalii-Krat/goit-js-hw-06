@@ -9,15 +9,22 @@ function handleSubmit(event) {
     elements: { email, password }
   } = event.currentTarget;
     
+
   if (email.value === "" || password.value === "") {
-      return alert("Предупреждение! Все поля должны быть заполнены!");
+    return alert("Предупреждение! Все поля должны быть заполнены!");
   }
     
-     const formData = new FormData(event.currentTarget);
-    formData.forEach((value, name) => {
-        console.log(name);
-        console.log(value);
-    });
-    
+  const formElements = event.currentTarget.elements;
+
+  const Email = formElements.email.value;
+  const Password = formElements.password.value;
+
+  const formData = {
+       Email,
+      Password
+     };
+
+  console.log(formData);
+  
   event.currentTarget.reset();
 }
